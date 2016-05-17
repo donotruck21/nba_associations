@@ -1,0 +1,47 @@
+<style type="text/css">
+	.div1{
+		/*border: 1px solid black;*/
+		display: inline-block;
+		vertical-align: top;
+		width: 550px;
+	}
+	.div2{
+		/*border: 1px solid black;*/
+		display: inline-block;
+		vertical-align: top;
+		width: 250px;
+		margin-left: 40px;
+	}
+</style>
+
+<div>
+    <h2><u>NBA Teams</u></h2><br>
+    <h4>Search:
+    	<input type="text" data-ng-model="name">
+    </h4>
+    <br><br>
+
+    <div class="div1">
+	    <table class="table table-striped table-bordered table-hover">
+	    	<thead>
+	    		<th class="info">NBA Team</th>
+	    		<th class="info">Delete</th>
+	    	</thead>
+	    	<tbody>
+	    		<tr ng-repeat="team in teams | filter:name">
+	    			<td>{{ team.name }}</td>
+	    			<td><button ng-click="deleteTeam(team.id)" class="btn btn-xs btn-danger">Delete Team</button></td>
+	    		</tr>
+	    	</tbody>
+	    </table>
+    </div>
+
+    <div class="div2">
+	    <h3>Add a new team</h3><br>
+	    <p>
+	        <label>Team Name:</label>
+	        <input ng-model="newTeam.team.name" type="text">
+	    </p>
+	    <input ng-click="createTeam()" type="submit" value="Create Team" class="btn btn-primary">
+	</div>
+</div>

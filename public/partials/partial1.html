@@ -1,0 +1,76 @@
+<style type="text/css">
+	h5{
+		display: inline-block;
+	}
+	input{
+		width: 100px;
+	}
+</style>
+
+<div>
+    <h2><u>NBA Players</u></h2><br>
+
+    <h4>Search by:<h4>
+    <h5> All:
+    	<input type="text" data-ng-model="all">
+    </h5>
+    <h5> First Name:
+    	<input type="text" data-ng-model="searchText.first_name">
+    </h5>
+    <h5> Last Name:
+    	<input type="text" data-ng-model="searchText.last_name">
+    </h5>
+    <h5> Team:
+    	<input type="text" data-ng-model="searchText.name">
+    </h5>
+    <br><br>
+
+    <div class="div1 col-md-8">
+	    <table class="table table-striped table-bordered table-hover">
+	    	<thead>
+	    		<th class="info">First Name</th>
+	    		<th class="info">Last Name</th>
+	    		<th class="info">NBA Team</th>
+	    		<th class="info">Delete</th>
+	    	</thead>
+	    	<tbody>
+	    		<tr ng-repeat="player in players | filter:searchText | filter:all | orderBy:'first_name'">
+	    			<td>{{ player.first_name }}</td>
+	    			<td>{{ player.last_name }}</td>
+	    			<td>{{ player.name }}</td>
+	    			<td><button ng-click="deletePlayer(player.id)" class="btn btn-xs btn-danger">Delete Player</button></td>
+	    		</tr>
+	    	</tbody>
+	    </table>
+    </div>
+
+
+    <div class="div2 col-md-4">
+		<h3>Add a new player</h3><br>
+		<p>
+			<label>First Name:</label>
+			<input ng-model="newPlayer.player.first_name" type="text">
+		</p>
+		<p>
+			<label>Last Name:</label>
+			<input ng-model="newPlayer.player.last_name" type="text">
+		</p>
+
+		<select name="team" ng-model="newPlayer.team">
+			<option ng-repeat="team in teams">{{ team.name }}</option>
+		</select><br><br>
+
+		<input ng-click="createPlayer()" type="submit" value="Create Player" class="btn btn-sm btn-primary">
+	</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+

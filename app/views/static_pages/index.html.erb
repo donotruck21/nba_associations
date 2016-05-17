@@ -1,0 +1,21 @@
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+	<div ng-app="nbaApp">
+		<!-- <div class="page-header"> -->
+	    <h1><u>NBA Information</u></h1><br><br>
+	    <!-- </div> -->
+	    <!-- <ul class="nav nav-pills"> -->
+	    <ul class="nav nav-tabs nav-justified">
+		  	<li role="presentation"><a href="#/partial1">Players</a></li>
+		  	<li role="presentation"><a href="#/partial2">Teams</a></li>
+		  	<li role="presentation"><a href="#/partial3">Associations</a></li>
+		</ul><br>
+	    <!-- <a href="#/partial1">Players</a> | <a href="#/partial2">Teams</a> | <a href="#/partial3">Associations</a><br><br><br> -->
+
+	    <div ng-view=""></div>
+	</div>
+</body>
+</html>
